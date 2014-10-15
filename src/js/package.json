@@ -1,0 +1,14 @@
+{
+  "name": "jsphysics",
+  "description": "javascript physics engine",
+  "private": true,
+  "version": "0.0.0",
+  "repository": {
+    "type": "git",
+    "url": "github.com/kyldvs/jsphysics"
+  },
+  "dependencies": {
+    "react": "~0.11.2"
+  },
+  "devDependencies": {}
+}
