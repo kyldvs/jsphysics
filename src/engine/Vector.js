@@ -1,5 +1,6 @@
 /**
  * @providesModule Vector
+ * @flow
  */
 
 var Point = require('Point');

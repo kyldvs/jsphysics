@@ -1,5 +1,6 @@
 /**
  * @providesModule Point
+ * @flow
  */
 
 class Point {
