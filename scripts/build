@@ -1,0 +1,18 @@
+#! /bin/bash -e
+
+# directory this script is located in
+SCRIPTS=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
+
+# some convenient aliases
+COMMONER="$SCRIPTS/commoner"
+ROOT="$SCRIPTS/.."
+BUILD="$ROOT/build"
+
+# the projects to build
+PROJECTS[0]="engine"
+PROJECTS[1]="site"
+
+for PROJECT in "${PROJECTS[@]}"
+do
+   /usr/bin/env node "$COMMONER" --extension js --relativize --use-provides-module "$ROOT/$PROJECT" "$BUILD/$PROJECT"
+done
