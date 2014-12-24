@@ -8,11 +8,6 @@ COMMONER="$SCRIPTS/commoner"
 ROOT="$SCRIPTS/.."
 BUILD="$ROOT/build"
 
-# the projects to build
-PROJECTS[0]="engine"
-PROJECTS[1]="site"
-
-for PROJECT in "${PROJECTS[@]}"
-do
-   /usr/bin/env node "$COMMONER" --extension js --relativize --use-provides-module "$ROOT/$PROJECT" "$BUILD/$PROJECT"
-done
+# for now build everything into the build directory
+/usr/bin/env node "$COMMONER" --extension js --relativize --use-provides-module "$ROOT/engine" "$BUILD"
+/usr/bin/env node "$COMMONER" --extension js --relativize --use-provides-module "$ROOT/site" "$BUILD"
