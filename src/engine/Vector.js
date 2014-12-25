@@ -2,6 +2,7 @@
  * @providesModule Vector
  * @flow
  */
+'use strict';
 
 var Point = require('Point');
 

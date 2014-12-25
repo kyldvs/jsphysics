@@ -1,8 +1,9 @@
 /**
  * @providesModule Server
  */
+'use strict';
 
-var express = require('express')
+var express = require('express');
 
 var app = express();
 
@@ -11,7 +12,7 @@ app.get('/', (req, res) => {
 });
 
 var server = app.listen(3000, () => {
-  var host = server.address().address
-  var port = server.address().port
+  var host = server.address().address;
+  var port = server.address().port;
   console.log('listening at http://%s:%s', host, port);
 });

@@ -2,6 +2,7 @@
  * @providesModule Point
  * @flow
  */
+'use strict';
 
 class Point {
   constructor(x, y, z) {
