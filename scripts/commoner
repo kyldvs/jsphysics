@@ -1,25 +1,12 @@
 #!/usr/bin/env node
 
-var jstransform = require('jstransform');
-
-// get the visitors we want from js transform
-var visitors = [].concat(
-  require('jstransform/visitors/es6-arrow-function-visitors').visitorList,
-  require('jstransform/visitors/es6-class-visitors').visitorList,
-  require('jstransform/visitors/es6-destructuring-visitors').visitorList,
-  require('jstransform/visitors/es6-object-concise-method-visitors').visitorList,
-  require('jstransform/visitors/es6-object-short-notation-visitors').visitorList,
-  require('jstransform/visitors/es6-rest-param-visitors').visitorList,
-  require('jstransform/visitors/es6-template-visitors').visitorList,
-  require('jstransform/visitors/es7-spread-property-visitors').visitorList,
-  require('jstransform/visitors/reserved-words-visitors').visitorList
-);
+var ReactTools = require('react-tools');
 
 // do the thing!
 require('commoner')
+  .ignorePattern(/.*\/__tests__\/.*/)
   .resolve(
     function(id) {
-      var context = this;
       return context.getProvidedP().then(function(idToPath) {
         // If a module declares its own identifier using @providesModule
         // then that identifier will be a key in the idToPath object.
@@ -29,13 +16,8 @@ require('commoner')
       });
     },
     function(id) {
-      // Otherwise assume the identifier maps directly to a filesystem path.
-      // The readModuleP method simply appends the preferred file extension
-      // (usually .js) to the given module identifier and opens that file.
       return this.readModuleP(id);
     }
   ).process(function(id, source) {
-    // assume everything is js here and transform it
-    var transformed = jstransform.transform(visitors, source);
-    return transformed.code;
+    return ReactTools.transform(source, {harmony: true});
   });

@@ -9,10 +9,20 @@
   },
   "dependencies": {
     "react": "~0.11.2",
-    "commoner": "~0.10.0",
+    "commoner": "git://github.com/kyldvs/commoner.git",
     "express": "~4.10.6",
-    "jstransform": "~8.2.0",
-    "browserify": "~7.0.3"
+    "react-tools": "~0.12.2"
   },
-  "devDependencies": {}
+  "jest": {
+    "rootDir": "",
+    "scriptPreprocessor": "jest/preprocessor.js",
+    "modulePathIgnorePatterns": [
+      "/build/",
+      "/node_modules/"
+    ],
+    "testPathIgnorePatterns": [
+      "/build/",
+      "/node_modules/"
+    ]
+  }
 }

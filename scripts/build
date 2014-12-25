@@ -9,4 +9,4 @@ ROOT="$SCRIPTS/.."
 BUILD="$ROOT/build"
 
 # for now build everything into the build directory
-/usr/bin/env node "$COMMONER" --extension js --relativize --use-provides-module "$ROOT/src" "$BUILD"
+/usr/bin/env node "$COMMONER" --relativize --use-provides-module "$ROOT/src" "$BUILD"
